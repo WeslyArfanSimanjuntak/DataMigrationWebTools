@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MIGULDBDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cd_client_">
+          <Key>
+            <PropertyRef Name="client_no" />
+          </Key>
+          <Property Name="client_id_temp" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="policy_no" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="policy_product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ppOrttOrbf" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="client_no" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="salutation" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="100" />
+          <Property Name="birth_place" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="birth_date" Type="datetime" Nullable="false" />
+          <Property Name="gender_code" Type="char" MaxLength="1" />
+          <Property Name="marital_status_code" Type="varchar" MaxLength="10" />
+          <Property Name="occupation_code" Type="varchar" MaxLength="10" />
+          <Property Name="category_code" Type="varchar" MaxLength="10" />
+          <Property Name="position_code" Type="varchar" MaxLength="2" />
+          <Property Name="education_code" Type="varchar" MaxLength="10" />
+          <Property Name="client_type_code" Type="varchar" MaxLength="10" />
+          <Property Name="religion_code" Type="varchar" MaxLength="10" />
+          <Property Name="smoker_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cigarete_perday" Type="decimal" Precision="2" Scale="0" />
+          <Property Name="residence_address1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="residence_address2" Type="varchar" MaxLength="60" />
+          <Property Name="residence_phone_no" Type="varchar" MaxLength="15" />
+          <Property Name="residence_fax" Type="varchar" MaxLength="15" />
+          <Property Name="residence_city" Type="varchar" MaxLength="10" />
+          <Property Name="residence_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="residence_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="office_address1" Type="varchar" MaxLength="255" />
+          <Property Name="office_address2" Type="varchar" MaxLength="255" />
+          <Property Name="office_phone_no" Type="varchar" MaxLength="15" />
+          <Property Name="office_fax" Type="varchar" MaxLength="15" />
+          <Property Name="office_city" Type="varchar" MaxLength="30" />
+          <Property Name="office_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="office_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="mail_address1" Type="varchar" MaxLength="255" />
+          <Property Name="mail_address2" Type="varchar" MaxLength="255" />
+          <Property Name="mail_city" Type="varchar" MaxLength="30" />
+          <Property Name="mail_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="mail_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="bi_code" Type="varchar" MaxLength="10" />
+          <Property Name="bank_account_no" Type="varchar" MaxLength="20" />
+          <Property Name="bank_branch" Type="varchar" MaxLength="60" />
+          <Property Name="bank_city" Type="varchar" MaxLength="100" />
+          <Property Name="account_holder" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="account_holder_relation_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="mobile_phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_type_code" Type="varchar" MaxLength="10" />
+          <Property Name="no_id" Type="varchar" MaxLength="50" />
+          <Property Name="id_issue_date" Type="date" />
+          <Property Name="id_expire_date" Type="date" />
+          <Property Name="height" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="weight" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="monthly_cost" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="client_status" Type="char" MaxLength="2" />
+          <Property Name="npwp" Type="varchar" MaxLength="60" />
+          <Property Name="npwp_name" Type="varchar" MaxLength="60" />
+          <Property Name="npwp_address" Type="varchar" MaxLength="255" />
+          <Property Name="front_title" Type="varchar" MaxLength="20" />
+          <Property Name="back_title" Type="varchar" MaxLength="20" />
+          <Property Name="mother_name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="mother_birth_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="fn_fundnav_">
+          <Key>
+            <PropertyRef Name="fund_code" />
+            <PropertyRef Name="effective_date" />
+          </Key>
+          <Property Name="fund_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="currency_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="effective_date" Type="datetime" Nullable="false" />
+          <Property Name="entry_date" Type="datetime" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="15" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OldClientIdToNewClientId">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OldId" Type="varchar" MaxLength="150" />
+          <Property Name="NewId" Type="varchar" MaxLength="10" />
+          <Property Name="DatabaseName" Type="varchar" MaxLength="50" />
+          <Property Name="TableName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ps_fund_transaction_history_">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fund_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="transaction_type_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="transaction_date" Type="datetime" Nullable="false" />
+          <Property Name="fund_pct" Type="numeric" Precision="12" Scale="5" />
+          <Property Name="fund_amt" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+          <Property Name="confirm_date" Type="datetime" Nullable="false" />
+          <Property Name="collection_amt" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="investible_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="admfee_amt" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="investible_amt" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+          <Property Name="pricing_date" Type="datetime" />
+          <Property Name="posting_date" Type="datetime" Nullable="false" />
+          <Property Name="posting_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="unit_amt" Type="numeric" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="begin_balance" Type="numeric" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="final_balance" Type="numeric" Precision="14" Scale="4" Nullable="false" />
+          <Property Name="alteration_id" Type="varchar" MaxLength="20" />
+          <Property Name="application_no" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="module_source" Type="varchar" MaxLength="10" />
+          <Property Name="collection_id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="real_pricing_date" Type="datetime" Nullable="false" />
+          <Property Name="pnl_amt" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="pnl_unit" Type="numeric" Precision="14" Scale="4" />
+        </EntityType>
+        <Association Name="FK_OldClientIdToNewClientId_ToCdClient">
+          <End Role="cd_client_" Type="Self.cd_client_" Multiplicity="0..1" />
+          <End Role="OldClientIdToNewClientId" Type="Self.OldClientIdToNewClientId" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cd_client_">
+              <PropertyRef Name="client_no" />
+            </Principal>
+            <Dependent Role="OldClientIdToNewClientId">
+              <PropertyRef Name="NewId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spMigrateFnFundnav" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spMigrateFundTransactionFromIlias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spMigrateFuntTransactionMultiUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetErrorInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MIGULDBDevModelStoreContainer">
+          <EntitySet Name="cd_client_" EntityType="Self.cd_client_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fn_fundnav_" EntityType="Self.fn_fundnav_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OldClientIdToNewClientId" EntityType="Self.OldClientIdToNewClientId" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ps_fund_transaction_history_" EntityType="Self.ps_fund_transaction_history_" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OldClientIdToNewClientId_ToCdClient" Association="Self.FK_OldClientIdToNewClientId_ToCdClient">
+            <End Role="cd_client_" EntitySet="cd_client_" />
+            <End Role="OldClientIdToNewClientId" EntitySet="OldClientIdToNewClientId" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MIGULDBDevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MIGULDBDevEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spMigrateFnFundnav" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="spMigrateFundTransactionFromIlias" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="spMigrateFuntTransactionMultiUser" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="usp_GetErrorInfo" ReturnType="Collection(MIGULDBDevModel.usp_GetErrorInfo_Result)" />
+          <EntitySet Name="cd_client_" EntityType="MIGULDBDevModel.cd_client_" />
+          <EntitySet Name="fn_fundnav_" EntityType="MIGULDBDevModel.fn_fundnav_" />
+          <EntitySet Name="OldClientIdToNewClientId" EntityType="MIGULDBDevModel.OldClientIdToNewClientId" />
+          <EntitySet Name="ps_fund_transaction_history_" EntityType="MIGULDBDevModel.ps_fund_transaction_history_" />
+          <AssociationSet Name="FK_OldClientIdToNewClientId_ToCdClient" Association="MIGULDBDevModel.FK_OldClientIdToNewClientId_ToCdClient">
+            <End Role="cd_client_" EntitySet="cd_client_" />
+            <End Role="OldClientIdToNewClientId" EntitySet="OldClientIdToNewClientId" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="usp_GetErrorInfo_Result">
+          <Property Type="Int32" Name="ErrorNumber" Nullable="true" />
+          <Property Type="Int32" Name="ErrorSeverity" Nullable="true" />
+          <Property Type="Int32" Name="ErrorState" Nullable="true" />
+          <Property Type="String" Name="ErrorProcedure" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="ErrorLine" Nullable="true" />
+          <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="4000" />
+        </ComplexType>
+        <EntityType Name="cd_client_">
+          <Key>
+            <PropertyRef Name="client_no" />
+          </Key>
+          <Property Name="client_id_temp" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="policy_no" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="policy_product" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ppOrttOrbf" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="client_no" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="salutation" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="client_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="birth_place" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gender_code" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="marital_status_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="occupation_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="category_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="position_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="education_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="client_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="religion_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="smoker_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="cigarete_perday" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="residence_address1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="residence_address2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="residence_phone_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="residence_fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="residence_city" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="residence_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="residence_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="office_address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="office_address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="office_phone_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="office_fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="office_city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="office_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="office_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="mail_address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mail_address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mail_city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mail_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="mail_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="bi_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bank_account_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bank_branch" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="bank_city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="account_holder" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="account_holder_relation_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mobile_phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="no_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_issue_date" Type="DateTime" Precision="0" />
+          <Property Name="id_expire_date" Type="DateTime" Precision="0" />
+          <Property Name="height" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="weight" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="monthly_cost" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="client_status" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="npwp" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="npwp_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="npwp_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="front_title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="back_title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mother_name" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="mother_birth_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OldClientIdToNewClientId" Relationship="MIGULDBDevModel.FK_OldClientIdToNewClientId_ToCdClient" FromRole="cd_client_" ToRole="OldClientIdToNewClientId" />
+        </EntityType>
+        <EntityType Name="fn_fundnav_">
+          <Key>
+            <PropertyRef Name="fund_code" />
+            <PropertyRef Name="effective_date" />
+          </Key>
+          <Property Name="fund_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="currency_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="effective_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="entry_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="15" Scale="4" />
+        </EntityType>
+        <EntityType Name="OldClientIdToNewClientId">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OldId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NewId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cd_client_" Relationship="MIGULDBDevModel.FK_OldClientIdToNewClientId_ToCdClient" FromRole="OldClientIdToNewClientId" ToRole="cd_client_" />
+        </EntityType>
+        <EntityType Name="ps_fund_transaction_history_">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fund_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_type_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fund_pct" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="fund_amt" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+          <Property Name="confirm_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="collection_amt" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="investible_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="admfee_amt" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="investible_amt" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+          <Property Name="pricing_date" Type="DateTime" Precision="3" />
+          <Property Name="posting_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="posting_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="unit_amt" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+          <Property Name="begin_balance" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+          <Property Name="final_balance" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+          <Property Name="alteration_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="application_no" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="module_source" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="collection_id" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="real_pricing_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pnl_amt" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="pnl_unit" Type="Decimal" Precision="14" Scale="4" />
+        </EntityType>
+        <Association Name="FK_OldClientIdToNewClientId_ToCdClient">
+          <End Type="MIGULDBDevModel.cd_client_" Role="cd_client_" Multiplicity="0..1" />
+          <End Type="MIGULDBDevModel.OldClientIdToNewClientId" Role="OldClientIdToNewClientId" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cd_client_">
+              <PropertyRef Name="client_no" />
+            </Principal>
+            <Dependent Role="OldClientIdToNewClientId">
+              <PropertyRef Name="NewId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MIGULDBDevModelStoreContainer" CdmEntityContainer="MIGULDBDevEntities">
+          <FunctionImportMapping FunctionImportName="spMigrateFnFundnav" FunctionName="MIGULDBDevModel.Store.spMigrateFnFundnav" />
+          <FunctionImportMapping FunctionImportName="spMigrateFundTransactionFromIlias" FunctionName="MIGULDBDevModel.Store.spMigrateFundTransactionFromIlias" />
+          <FunctionImportMapping FunctionImportName="spMigrateFuntTransactionMultiUser" FunctionName="MIGULDBDevModel.Store.spMigrateFuntTransactionMultiUser" />
+          <FunctionImportMapping FunctionImportName="usp_GetErrorInfo" FunctionName="MIGULDBDevModel.Store.usp_GetErrorInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MIGULDBDevModel.usp_GetErrorInfo_Result">
+                <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+                <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+                <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+                <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+                <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="cd_client_">
+            <EntityTypeMapping TypeName="MIGULDBDevModel.cd_client_">
+              <MappingFragment StoreEntitySet="cd_client_">
+                <ScalarProperty Name="mother_birth_date" ColumnName="mother_birth_date" />
+                <ScalarProperty Name="mother_name" ColumnName="mother_name" />
+                <ScalarProperty Name="back_title" ColumnName="back_title" />
+                <ScalarProperty Name="front_title" ColumnName="front_title" />
+                <ScalarProperty Name="npwp_address" ColumnName="npwp_address" />
+                <ScalarProperty Name="npwp_name" ColumnName="npwp_name" />
+                <ScalarProperty Name="npwp" ColumnName="npwp" />
+                <ScalarProperty Name="client_status" ColumnName="client_status" />
+                <ScalarProperty Name="monthly_cost" ColumnName="monthly_cost" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="id_expire_date" ColumnName="id_expire_date" />
+                <ScalarProperty Name="id_issue_date" ColumnName="id_issue_date" />
+                <ScalarProperty Name="no_id" ColumnName="no_id" />
+                <ScalarProperty Name="id_type_code" ColumnName="id_type_code" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+                <ScalarProperty Name="account_holder_relation_code" ColumnName="account_holder_relation_code" />
+                <ScalarProperty Name="account_holder" ColumnName="account_holder" />
+                <ScalarProperty Name="bank_city" ColumnName="bank_city" />
+                <ScalarProperty Name="bank_branch" ColumnName="bank_branch" />
+                <ScalarProperty Name="bank_account_no" ColumnName="bank_account_no" />
+                <ScalarProperty Name="bi_code" ColumnName="bi_code" />
+                <ScalarProperty Name="mail_postal_code" ColumnName="mail_postal_code" />
+                <ScalarProperty Name="mail_province_code" ColumnName="mail_province_code" />
+                <ScalarProperty Name="mail_city" ColumnName="mail_city" />
+                <ScalarProperty Name="mail_address2" ColumnName="mail_address2" />
+                <ScalarProperty Name="mail_address1" ColumnName="mail_address1" />
+                <ScalarProperty Name="office_postal_code" ColumnName="office_postal_code" />
+                <ScalarProperty Name="office_province_code" ColumnName="office_province_code" />
+                <ScalarProperty Name="office_city" ColumnName="office_city" />
+                <ScalarProperty Name="office_fax" ColumnName="office_fax" />
+                <ScalarProperty Name="office_phone_no" ColumnName="office_phone_no" />
+                <ScalarProperty Name="office_address2" ColumnName="office_address2" />
+                <ScalarProperty Name="office_address1" ColumnName="office_address1" />
+                <ScalarProperty Name="residence_province_code" ColumnName="residence_province_code" />
+                <ScalarProperty Name="residence_postal_code" ColumnName="residence_postal_code" />
+                <ScalarProperty Name="residence_city" ColumnName="residence_city" />
+                <ScalarProperty Name="residence_fax" ColumnName="residence_fax" />
+                <ScalarProperty Name="residence_phone_no" ColumnName="residence_phone_no" />
+                <ScalarProperty Name="residence_address2" ColumnName="residence_address2" />
+                <ScalarProperty Name="residence_address1" ColumnName="residence_address1" />
+                <ScalarProperty Name="cigarete_perday" ColumnName="cigarete_perday" />
+                <ScalarProperty Name="smoker_status" ColumnName="smoker_status" />
+                <ScalarProperty Name="religion_code" ColumnName="religion_code" />
+                <ScalarProperty Name="client_type_code" ColumnName="client_type_code" />
+                <ScalarProperty Name="education_code" ColumnName="education_code" />
+                <ScalarProperty Name="position_code" ColumnName="position_code" />
+                <ScalarProperty Name="category_code" ColumnName="category_code" />
+                <ScalarProperty Name="occupation_code" ColumnName="occupation_code" />
+                <ScalarProperty Name="marital_status_code" ColumnName="marital_status_code" />
+                <ScalarProperty Name="gender_code" ColumnName="gender_code" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="birth_place" ColumnName="birth_place" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="salutation" ColumnName="salutation" />
+                <ScalarProperty Name="client_no" ColumnName="client_no" />
+                <ScalarProperty Name="ppOrttOrbf" ColumnName="ppOrttOrbf" />
+                <ScalarProperty Name="policy_product" ColumnName="policy_product" />
+                <ScalarProperty Name="policy_no" ColumnName="policy_no" />
+                <ScalarProperty Name="client_id_temp" ColumnName="client_id_temp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fn_fundnav_">
+            <EntityTypeMapping TypeName="MIGULDBDevModel.fn_fundnav_">
+              <MappingFragment StoreEntitySet="fn_fundnav_">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="effective_date" ColumnName="effective_date" />
+                <ScalarProperty Name="currency_code" ColumnName="currency_code" />
+                <ScalarProperty Name="fund_code" ColumnName="fund_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OldClientIdToNewClientId">
+            <EntityTypeMapping TypeName="MIGULDBDevModel.OldClientIdToNewClientId">
+              <MappingFragment StoreEntitySet="OldClientIdToNewClientId">
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="NewId" ColumnName="NewId" />
+                <ScalarProperty Name="OldId" ColumnName="OldId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ps_fund_transaction_history_">
+            <EntityTypeMapping TypeName="MIGULDBDevModel.ps_fund_transaction_history_">
+              <MappingFragment StoreEntitySet="ps_fund_transaction_history_">
+                <ScalarProperty Name="pnl_unit" ColumnName="pnl_unit" />
+                <ScalarProperty Name="pnl_amt" ColumnName="pnl_amt" />
+                <ScalarProperty Name="real_pricing_date" ColumnName="real_pricing_date" />
+                <ScalarProperty Name="collection_id" ColumnName="collection_id" />
+                <ScalarProperty Name="module_source" ColumnName="module_source" />
+                <ScalarProperty Name="application_no" ColumnName="application_no" />
+                <ScalarProperty Name="alteration_id" ColumnName="alteration_id" />
+                <ScalarProperty Name="final_balance" ColumnName="final_balance" />
+                <ScalarProperty Name="begin_balance" ColumnName="begin_balance" />
+                <ScalarProperty Name="unit_amt" ColumnName="unit_amt" />
+                <ScalarProperty Name="posting_status" ColumnName="posting_status" />
+                <ScalarProperty Name="posting_date" ColumnName="posting_date" />
+                <ScalarProperty Name="pricing_date" ColumnName="pricing_date" />
+                <ScalarProperty Name="investible_amt" ColumnName="investible_amt" />
+                <ScalarProperty Name="admfee_amt" ColumnName="admfee_amt" />
+                <ScalarProperty Name="investible_status" ColumnName="investible_status" />
+                <ScalarProperty Name="collection_amt" ColumnName="collection_amt" />
+                <ScalarProperty Name="confirm_date" ColumnName="confirm_date" />
+                <ScalarProperty Name="fund_amt" ColumnName="fund_amt" />
+                <ScalarProperty Name="fund_pct" ColumnName="fund_pct" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="transaction_type_code" ColumnName="transaction_type_code" />
+                <ScalarProperty Name="fund_code" ColumnName="fund_code" />
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

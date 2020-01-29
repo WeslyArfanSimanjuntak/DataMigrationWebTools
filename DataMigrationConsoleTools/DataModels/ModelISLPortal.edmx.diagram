@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="122fb3b70ef841c88c45e171662bba39" Name="Diagram1">
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMER_BANKS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMER_HIST" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMER_RELATIONSHIPS" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMERS" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_LOGS" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_PRODUCT_BENEFITS" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_PRODUCTS" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_MKT_AGENT_MST" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_MKT_COMMISSION_ACTION_HIST" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_MKT_COMMISSION_DTL" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_MKT_COMMISSION_HDR" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_CLAIM_ACTION_HIST" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_CLAIM_DOCS" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_CLAIMS" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_ENDORSE_BN" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_ENDORSE_DTL" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_ENDORSE_FILE" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_ENDORSE_IS" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_ENDORSE_PH" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_POLICIES" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_POLICY_HIST" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_POLICY_PCF" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_BANKS" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMER_BANKS_TMP" Width="1.5" PointX="10.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMER_RELATIONSHIPS_TMP" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_CUSTOMERS_TMP" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_LOGIN_ATTEMPT" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_STG_DTL" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_STG_HDR" Width="1.5" PointX="16.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_APP_STG_HST" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_FIN_UPD_DTL" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_FIN_UPD_HDR" Width="1.5" PointX="6.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.ISL_OPS_POLICY_TMP" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.sysdiagrams" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.vw_jiwa" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ISL_PORTALModel.vw_jiwa_db" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

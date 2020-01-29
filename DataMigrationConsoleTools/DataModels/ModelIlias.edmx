@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ILIASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDR_ID" />
+          </Key>
+          <Property Name="ADDR_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADDR_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="ADDR1" Type="varchar" MaxLength="40" />
+          <Property Name="ADDR2" Type="varchar" MaxLength="40" />
+          <Property Name="ADDR3" Type="varchar" MaxLength="40" />
+          <Property Name="POSTCODE" Type="varchar" MaxLength="6" />
+          <Property Name="CITY" Type="varchar" MaxLength="30" />
+          <Property Name="PROVINCE" Type="varchar" MaxLength="30" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="30" />
+          <Property Name="TELP" Type="varchar" MaxLength="30" />
+          <Property Name="HPNO" Type="varchar" MaxLength="30" />
+          <Property Name="FAXNO" Type="varchar" MaxLength="30" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="APPLICATION">
+          <Key>
+            <PropertyRef Name="APPLI_NUM" />
+          </Key>
+          <Property Name="APPLI_NUM" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="BUSI_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="ADDR_ID" Type="bigint" Nullable="false" />
+          <Property Name="APPL_DATE" Type="datetime" />
+          <Property Name="APPL_RCV_DATE" Type="datetime" />
+          <Property Name="APPL_ENT_DATE" Type="datetime" />
+          <Property Name="CURR" Type="varchar" MaxLength="3" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="INS_SEX" Type="varchar" MaxLength="1" />
+          <Property Name="INS_AGE" Type="int" />
+          <Property Name="SMOKER" Type="varchar" MaxLength="1" />
+          <Property Name="MED_CODE" Type="varchar" MaxLength="40" />
+          <Property Name="PAYMETH" Type="varchar" MaxLength="1" />
+          <Property Name="DIV_OPT" Type="varchar" MaxLength="1" />
+          <Property Name="PAYFREQ" Type="varchar" MaxLength="1" />
+          <Property Name="ANN_PREM" Type="float" />
+          <Property Name="NA_PREM" Type="float" />
+          <Property Name="EXT_PREM" Type="float" />
+          <Property Name="MOD_PREM" Type="float" />
+          <Property Name="CADDR_CODE" Type="bigint" />
+          <Property Name="INS_SAGE" Type="int" />
+          <Property Name="TOT_DISC" Type="float" />
+          <Property Name="ASTRA_DISC" Type="varchar" MaxLength="1" />
+          <Property Name="LARGE_DISC" Type="varchar" MaxLength="1" />
+          <Property Name="OTHER_DISC" Type="varchar" MaxLength="1" />
+          <Property Name="OTHER_DISC_VAL" Type="int" />
+          <Property Name="AGENT_REL" Type="varchar" MaxLength="1" />
+          <Property Name="REASON" Type="varchar" MaxLength="80" />
+          <Property Name="STCARD" Type="varchar" MaxLength="1" />
+          <Property Name="PREM_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="DECISION_DATE" Type="datetime" />
+          <Property Name="CANCEL_FLAG" Type="varchar" MaxLength="1" />
+          <Property Name="UPD_DATE" Type="datetime" />
+          <Property Name="CODER" Type="varchar" MaxLength="4" />
+          <Property Name="PACKAGE" Type="varchar" MaxLength="80" />
+          <Property Name="AGENCODE2" Type="nvarchar" MaxLength="8" />
+          <Property Name="AGENNAME2" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="APPREL">
+          <Key>
+            <PropertyRef Name="RL_ID" />
+          </Key>
+          <Property Name="RL_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RELA_CODE" Type="varchar" MaxLength="3" />
+          <Property Name="H_ADDR" Type="bigint" />
+          <Property Name="B_ADDR" Type="bigint" />
+          <Property Name="APPLI_NUM" Type="varchar" MaxLength="8" />
+          <Property Name="CLIENT_ID" Type="bigint" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="OCU1" Type="varchar" MaxLength="40" />
+          <Property Name="OCU2" Type="varchar" MaxLength="40" />
+          <Property Name="RELATION" Type="varchar" MaxLength="40" />
+          <Property Name="COMPANYNM" Type="varchar" MaxLength="80" />
+          <Property Name="PERSONID" Type="varchar" MaxLength="30" />
+          <Property Name="PERSONID_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="OCCU_CLASS" Type="int" />
+        </EntityType>
+        <EntityType Name="BANK">
+          <Key>
+            <PropertyRef Name="BANK_CODE" />
+          </Key>
+          <Property Name="BANK_CODE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="DESCRIP" Type="varchar" MaxLength="40" />
+          <Property Name="BANK_TYPE" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ILIAS.dbo.BENEFICIARY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BENEFICIARY">
+          <Key>
+            <PropertyRef Name="BEN_ID" />
+            <PropertyRef Name="APPLI_NUM" />
+          </Key>
+          <Property Name="BEN_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APPLI_NUM" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="80" />
+          <Property Name="SHARE" Type="float" />
+          <Property Name="RELATION" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="CLIENT_ID" />
+          </Key>
+          <Property Name="CLIENT_ID" Type="bigint" Nullable="false" />
+          <Property Name="MARITAL_ST" Type="varchar" MaxLength="20" />
+          <Property Name="TITLE" Type="varchar" MaxLength="40" />
+          <Property Name="NAME" Type="varchar" MaxLength="80" />
+          <Property Name="SEX" Type="varchar" MaxLength="1" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="POB" Type="varchar" MaxLength="30" />
+          <Property Name="NATIONALITY" Type="varchar" MaxLength="1" />
+          <Property Name="LOYAL_CARD" Type="varchar" MaxLength="23" />
+          <Property Name="H_ADDR" Type="varchar" MaxLength="40" />
+          <Property Name="B_ADDR" Type="varchar" MaxLength="40" />
+          <Property Name="N_ADDR" Type="varchar" MaxLength="40" />
+          <Property Name="KTP" Type="varchar" MaxLength="30" />
+          <Property Name="SIM" Type="varchar" MaxLength="30" />
+          <Property Name="PASSPORT" Type="varchar" MaxLength="30" />
+          <Property Name="MOTHERNAME" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ILIAS.dbo.View_BankAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_BankAccount">
+          <Key>
+            <PropertyRef Name="ROW_ID" />
+          </Key>
+          <Property Name="ROW_ID" Type="int" Nullable="false" />
+          <Property Name="APPLI_NUM" Type="varchar" MaxLength="8" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="15" />
+          <Property Name="CURR" Type="nvarchar" MaxLength="3" />
+          <Property Name="ACCNUMBER" Type="nvarchar" MaxLength="20" />
+          <Property Name="BANKNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="BRANCH" Type="nvarchar" MaxLength="40" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <Association Name="FK_APPLICAT_ADDR_TO_A_ADDRESS">
+          <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADDRESS">
+              <PropertyRef Name="ADDR_ID" />
+            </Principal>
+            <Dependent Role="APPLICATION">
+              <PropertyRef Name="ADDR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPREL_APPLI_TO__APPLICAT">
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPREL" Type="Self.APPREL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPLICATION">
+              <PropertyRef Name="APPLI_NUM" />
+            </Principal>
+            <Dependent Role="APPREL">
+              <PropertyRef Name="APPLI_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPREL_CLIENT_TO_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPREL" Type="Self.APPREL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="CLIENT_ID" />
+            </Principal>
+            <Dependent Role="APPREL">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BENEFICI_APPLI_TO__APPLICAT">
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BENEFICIARY" Type="Self.BENEFICIARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPLICATION">
+              <PropertyRef Name="APPLI_NUM" />
+            </Principal>
+            <Dependent Role="BENEFICIARY">
+              <PropertyRef Name="APPLI_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ILIASModelStoreContainer">
+          <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APPLICATION" EntityType="Self.APPLICATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APPREL" EntityType="Self.APPREL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANK" EntityType="Self.BANK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BENEFICIARY" EntityType="Self.BENEFICIARY" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BENEFICIARY].[BEN_ID] AS [BEN_ID], 
+    [BENEFICIARY].[APPLI_NUM] AS [APPLI_NUM], 
+    [BENEFICIARY].[NAME] AS [NAME], 
+    [BENEFICIARY].[SHARE] AS [SHARE], 
+    [BENEFICIARY].[RELATION] AS [RELATION]
+    FROM [dbo].[BENEFICIARY] AS [BENEFICIARY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_BankAccount" EntityType="Self.View_BankAccount" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_BankAccount].[ROW_ID] AS [ROW_ID], 
+    [View_BankAccount].[APPLI_NUM] AS [APPLI_NUM], 
+    [View_BankAccount].[NAME] AS [NAME], 
+    [View_BankAccount].[TITLE] AS [TITLE], 
+    [View_BankAccount].[CURR] AS [CURR], 
+    [View_BankAccount].[ACCNUMBER] AS [ACCNUMBER], 
+    [View_BankAccount].[BANKNAME] AS [BANKNAME], 
+    [View_BankAccount].[BRANCH] AS [BRANCH], 
+    [View_BankAccount].[CITY] AS [CITY]
+    FROM [dbo].[View_BankAccount] AS [View_BankAccount]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_APPLICAT_ADDR_TO_A_ADDRESS" Association="Self.FK_APPLICAT_ADDR_TO_A_ADDRESS">
+            <End Role="ADDRESS" EntitySet="ADDRESS" />
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPREL_APPLI_TO__APPLICAT" Association="Self.FK_APPREL_APPLI_TO__APPLICAT">
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+            <End Role="APPREL" EntitySet="APPREL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPREL_CLIENT_TO_CLIENT" Association="Self.FK_APPREL_CLIENT_TO_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="APPREL" EntitySet="APPREL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BENEFICI_APPLI_TO__APPLICAT" Association="Self.FK_BENEFICI_APPLI_TO__APPLICAT">
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+            <End Role="BENEFICIARY" EntitySet="BENEFICIARY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ILIASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDR_ID" />
+          </Key>
+          <Property Name="ADDR_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADDR_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR3" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="POSTCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PROVINCE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HPNO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FAXNO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="APPLICATION" Relationship="Self.FK_APPLICAT_ADDR_TO_A_ADDRESS" FromRole="ADDRESS" ToRole="APPLICATION" />
+        </EntityType>
+        <EntityType Name="APPLICATION">
+          <Key>
+            <PropertyRef Name="APPLI_NUM" />
+          </Key>
+          <Property Name="APPLI_NUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUSI_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR_ID" Type="Int64" Nullable="false" />
+          <Property Name="APPL_DATE" Type="DateTime" Precision="3" />
+          <Property Name="APPL_RCV_DATE" Type="DateTime" Precision="3" />
+          <Property Name="APPL_ENT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CURR" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INS_SEX" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INS_AGE" Type="Int32" />
+          <Property Name="SMOKER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MED_CODE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PAYMETH" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DIV_OPT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PAYFREQ" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ANN_PREM" Type="Double" />
+          <Property Name="NA_PREM" Type="Double" />
+          <Property Name="EXT_PREM" Type="Double" />
+          <Property Name="MOD_PREM" Type="Double" />
+          <Property Name="CADDR_CODE" Type="Int64" />
+          <Property Name="INS_SAGE" Type="Int32" />
+          <Property Name="TOT_DISC" Type="Double" />
+          <Property Name="ASTRA_DISC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LARGE_DISC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OTHER_DISC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OTHER_DISC_VAL" Type="Int32" />
+          <Property Name="AGENT_REL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="REASON" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="STCARD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PREM_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DECISION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CANCEL_FLAG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UPD_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CODER" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="PACKAGE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AGENCODE2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="AGENNAME2" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADDRESS" Relationship="Self.FK_APPLICAT_ADDR_TO_A_ADDRESS" FromRole="APPLICATION" ToRole="ADDRESS" />
+          <NavigationProperty Name="APPREL" Relationship="Self.FK_APPREL_APPLI_TO__APPLICAT" FromRole="APPLICATION" ToRole="APPREL" />
+          <NavigationProperty Name="BENEFICIARY" Relationship="ILIASModel.FK_BENEFICI_APPLI_TO__APPLICAT" FromRole="APPLICATION" ToRole="BENEFICIARY" />
+        </EntityType>
+        <EntityType Name="APPREL">
+          <Key>
+            <PropertyRef Name="RL_ID" />
+          </Key>
+          <Property Name="RL_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RELA_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="H_ADDR" Type="Int64" />
+          <Property Name="B_ADDR" Type="Int64" />
+          <Property Name="APPLI_NUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CLIENT_ID" Type="Int64" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OCU1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OCU2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RELATION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANYNM" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONID_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OCCU_CLASS" Type="Int32" />
+          <NavigationProperty Name="APPLICATION" Relationship="Self.FK_APPREL_APPLI_TO__APPLICAT" FromRole="APPREL" ToRole="APPLICATION" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_APPREL_CLIENT_TO_CLIENT" FromRole="APPREL" ToRole="CLIENT" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="CLIENT_ID" />
+          </Key>
+          <Property Name="CLIENT_ID" Type="Int64" Nullable="false" />
+          <Property Name="MARITAL_ST" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="SEX" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="POB" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NATIONALITY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LOYAL_CARD" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+          <Property Name="H_ADDR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="B_ADDR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="N_ADDR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="KTP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SIM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PASSPORT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHERNAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="APPREL" Relationship="Self.FK_APPREL_CLIENT_TO_CLIENT" FromRole="CLIENT" ToRole="APPREL" />
+        </EntityType>
+        <Association Name="FK_APPLICAT_ADDR_TO_A_ADDRESS">
+          <End Role="ADDRESS" Type="Self.ADDRESS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADDRESS">
+              <PropertyRef Name="ADDR_ID" />
+            </Principal>
+            <Dependent Role="APPLICATION">
+              <PropertyRef Name="ADDR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPREL_APPLI_TO__APPLICAT">
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPREL" Type="Self.APPREL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPLICATION">
+              <PropertyRef Name="APPLI_NUM" />
+            </Principal>
+            <Dependent Role="APPREL">
+              <PropertyRef Name="APPLI_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPREL_CLIENT_TO_CLIENT">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="APPREL" Type="Self.APPREL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="CLIENT_ID" />
+            </Principal>
+            <Dependent Role="APPREL">
+              <PropertyRef Name="CLIENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ILIASEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" />
+          <EntitySet Name="APPLICATION" EntityType="Self.APPLICATION" />
+          <EntitySet Name="APPREL" EntityType="Self.APPREL" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" />
+          <AssociationSet Name="FK_APPLICAT_ADDR_TO_A_ADDRESS" Association="Self.FK_APPLICAT_ADDR_TO_A_ADDRESS">
+            <End Role="ADDRESS" EntitySet="ADDRESS" />
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPREL_APPLI_TO__APPLICAT" Association="Self.FK_APPREL_APPLI_TO__APPLICAT">
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+            <End Role="APPREL" EntitySet="APPREL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPREL_CLIENT_TO_CLIENT" Association="Self.FK_APPREL_CLIENT_TO_CLIENT">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="APPREL" EntitySet="APPREL" />
+          </AssociationSet>
+          <EntitySet Name="BANK" EntityType="ILIASModel.BANK" />
+          <EntitySet Name="View_BankAccount" EntityType="ILIASModel.View_BankAccount" />
+          <EntitySet Name="BENEFICIARY" EntityType="ILIASModel.BENEFICIARY" />
+          <AssociationSet Name="FK_BENEFICI_APPLI_TO__APPLICAT" Association="ILIASModel.FK_BENEFICI_APPLI_TO__APPLICAT">
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+            <End Role="BENEFICIARY" EntitySet="BENEFICIARY" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BANK">
+          <Key>
+            <PropertyRef Name="BANK_CODE" />
+          </Key>
+          <Property Name="BANK_CODE" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="BANK_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_BankAccount">
+          <Key>
+            <PropertyRef Name="ROW_ID" />
+          </Key>
+          <Property Name="ROW_ID" Type="Int32" Nullable="false" />
+          <Property Name="APPLI_NUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TITLE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CURR" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ACCNUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BANKNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BRANCH" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BENEFICIARY">
+          <Key>
+            <PropertyRef Name="BEN_ID" />
+            <PropertyRef Name="APPLI_NUM" />
+          </Key>
+          <Property Name="BEN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APPLI_NUM" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="SHARE" Type="Double" />
+          <Property Name="RELATION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="APPLICATION" Relationship="ILIASModel.FK_BENEFICI_APPLI_TO__APPLICAT" FromRole="BENEFICIARY" ToRole="APPLICATION" />
+        </EntityType>
+        <Association Name="FK_BENEFICI_APPLI_TO__APPLICAT">
+          <End Type="ILIASModel.APPLICATION" Role="APPLICATION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ILIASModel.BENEFICIARY" Role="BENEFICIARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPLICATION">
+              <PropertyRef Name="APPLI_NUM" />
+            </Principal>
+            <Dependent Role="BENEFICIARY">
+              <PropertyRef Name="APPLI_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ILIASModelStoreContainer" CdmEntityContainer="ILIASEntities">
+          <EntitySetMapping Name="ADDRESS">
+            <EntityTypeMapping TypeName="ILIASModel.ADDRESS">
+              <MappingFragment StoreEntitySet="ADDRESS">
+                <ScalarProperty Name="ADDR_ID" ColumnName="ADDR_ID" />
+                <ScalarProperty Name="ADDR_TYPE" ColumnName="ADDR_TYPE" />
+                <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+                <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="PROVINCE" ColumnName="PROVINCE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="TELP" ColumnName="TELP" />
+                <ScalarProperty Name="HPNO" ColumnName="HPNO" />
+                <ScalarProperty Name="FAXNO" ColumnName="FAXNO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPLICATION">
+            <EntityTypeMapping TypeName="ILIASModel.APPLICATION">
+              <MappingFragment StoreEntitySet="APPLICATION">
+                <ScalarProperty Name="APPLI_NUM" ColumnName="APPLI_NUM" />
+                <ScalarProperty Name="BUSI_CODE" ColumnName="BUSI_CODE" />
+                <ScalarProperty Name="ADDR_ID" ColumnName="ADDR_ID" />
+                <ScalarProperty Name="APPL_DATE" ColumnName="APPL_DATE" />
+                <ScalarProperty Name="APPL_RCV_DATE" ColumnName="APPL_RCV_DATE" />
+                <ScalarProperty Name="APPL_ENT_DATE" ColumnName="APPL_ENT_DATE" />
+                <ScalarProperty Name="CURR" ColumnName="CURR" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="INS_SEX" ColumnName="INS_SEX" />
+                <ScalarProperty Name="INS_AGE" ColumnName="INS_AGE" />
+                <ScalarProperty Name="SMOKER" ColumnName="SMOKER" />
+                <ScalarProperty Name="MED_CODE" ColumnName="MED_CODE" />
+                <ScalarProperty Name="PAYMETH" ColumnName="PAYMETH" />
+                <ScalarProperty Name="DIV_OPT" ColumnName="DIV_OPT" />
+                <ScalarProperty Name="PAYFREQ" ColumnName="PAYFREQ" />
+                <ScalarProperty Name="ANN_PREM" ColumnName="ANN_PREM" />
+                <ScalarProperty Name="NA_PREM" ColumnName="NA_PREM" />
+                <ScalarProperty Name="EXT_PREM" ColumnName="EXT_PREM" />
+                <ScalarProperty Name="MOD_PREM" ColumnName="MOD_PREM" />
+                <ScalarProperty Name="CADDR_CODE" ColumnName="CADDR_CODE" />
+                <ScalarProperty Name="INS_SAGE" ColumnName="INS_SAGE" />
+                <ScalarProperty Name="TOT_DISC" ColumnName="TOT_DISC" />
+                <ScalarProperty Name="ASTRA_DISC" ColumnName="ASTRA_DISC" />
+                <ScalarProperty Name="LARGE_DISC" ColumnName="LARGE_DISC" />
+                <ScalarProperty Name="OTHER_DISC" ColumnName="OTHER_DISC" />
+                <ScalarProperty Name="OTHER_DISC_VAL" ColumnName="OTHER_DISC_VAL" />
+                <ScalarProperty Name="AGENT_REL" ColumnName="AGENT_REL" />
+                <ScalarProperty Name="REASON" ColumnName="REASON" />
+                <ScalarProperty Name="STCARD" ColumnName="STCARD" />
+                <ScalarProperty Name="PREM_TYPE" ColumnName="PREM_TYPE" />
+                <ScalarProperty Name="DECISION_DATE" ColumnName="DECISION_DATE" />
+                <ScalarProperty Name="CANCEL_FLAG" ColumnName="CANCEL_FLAG" />
+                <ScalarProperty Name="UPD_DATE" ColumnName="UPD_DATE" />
+                <ScalarProperty Name="CODER" ColumnName="CODER" />
+                <ScalarProperty Name="PACKAGE" ColumnName="PACKAGE" />
+                <ScalarProperty Name="AGENCODE2" ColumnName="AGENCODE2" />
+                <ScalarProperty Name="AGENNAME2" ColumnName="AGENNAME2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPREL">
+            <EntityTypeMapping TypeName="ILIASModel.APPREL">
+              <MappingFragment StoreEntitySet="APPREL">
+                <ScalarProperty Name="RL_ID" ColumnName="RL_ID" />
+                <ScalarProperty Name="RELA_CODE" ColumnName="RELA_CODE" />
+                <ScalarProperty Name="H_ADDR" ColumnName="H_ADDR" />
+                <ScalarProperty Name="B_ADDR" ColumnName="B_ADDR" />
+                <ScalarProperty Name="APPLI_NUM" ColumnName="APPLI_NUM" />
+                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="OCU1" ColumnName="OCU1" />
+                <ScalarProperty Name="OCU2" ColumnName="OCU2" />
+                <ScalarProperty Name="RELATION" ColumnName="RELATION" />
+                <ScalarProperty Name="COMPANYNM" ColumnName="COMPANYNM" />
+                <ScalarProperty Name="PERSONID" ColumnName="PERSONID" />
+                <ScalarProperty Name="PERSONID_TYPE" ColumnName="PERSONID_TYPE" />
+                <ScalarProperty Name="OCCU_CLASS" ColumnName="OCCU_CLASS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENT">
+            <EntityTypeMapping TypeName="ILIASModel.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+                <ScalarProperty Name="MARITAL_ST" ColumnName="MARITAL_ST" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="POB" ColumnName="POB" />
+                <ScalarProperty Name="NATIONALITY" ColumnName="NATIONALITY" />
+                <ScalarProperty Name="LOYAL_CARD" ColumnName="LOYAL_CARD" />
+                <ScalarProperty Name="H_ADDR" ColumnName="H_ADDR" />
+                <ScalarProperty Name="B_ADDR" ColumnName="B_ADDR" />
+                <ScalarProperty Name="N_ADDR" ColumnName="N_ADDR" />
+                <ScalarProperty Name="KTP" ColumnName="KTP" />
+                <ScalarProperty Name="SIM" ColumnName="SIM" />
+                <ScalarProperty Name="PASSPORT" ColumnName="PASSPORT" />
+                <ScalarProperty Name="MOTHERNAME" ColumnName="MOTHERNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANK">
+            <EntityTypeMapping TypeName="ILIASModel.BANK">
+              <MappingFragment StoreEntitySet="BANK">
+                <ScalarProperty Name="BANK_TYPE" ColumnName="BANK_TYPE" />
+                <ScalarProperty Name="DESCRIP" ColumnName="DESCRIP" />
+                <ScalarProperty Name="BANK_CODE" ColumnName="BANK_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_BankAccount">
+            <EntityTypeMapping TypeName="ILIASModel.View_BankAccount">
+              <MappingFragment StoreEntitySet="View_BankAccount">
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="BANKNAME" ColumnName="BANKNAME" />
+                <ScalarProperty Name="ACCNUMBER" ColumnName="ACCNUMBER" />
+                <ScalarProperty Name="CURR" ColumnName="CURR" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="APPLI_NUM" ColumnName="APPLI_NUM" />
+                <ScalarProperty Name="ROW_ID" ColumnName="ROW_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BENEFICIARY">
+            <EntityTypeMapping TypeName="ILIASModel.BENEFICIARY">
+              <MappingFragment StoreEntitySet="BENEFICIARY">
+                <ScalarProperty Name="RELATION" ColumnName="RELATION" />
+                <ScalarProperty Name="SHARE" ColumnName="SHARE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="APPLI_NUM" ColumnName="APPLI_NUM" />
+                <ScalarProperty Name="BEN_ID" ColumnName="BEN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

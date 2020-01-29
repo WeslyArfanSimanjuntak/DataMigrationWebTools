@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OLDToNEWMappingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OldId" Type="varchar" MaxLength="50" />
+          <Property Name="NewId" Type="varchar" MaxLength="10" />
+          <Property Name="DatabaseName" Type="varchar" MaxLength="50" />
+          <Property Name="TableName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NewClient">
+          <Key>
+            <PropertyRef Name="client_no" />
+          </Key>
+          <Property Name="client_id_temp" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="policy_no" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="policy_product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ppOrttOrbf" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="client_no" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="salutation" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="100" />
+          <Property Name="birth_place" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="birth_date" Type="datetime" Nullable="false" />
+          <Property Name="gender_code" Type="char" MaxLength="1" />
+          <Property Name="marital_status_code" Type="varchar" MaxLength="10" />
+          <Property Name="occupation_code" Type="varchar" MaxLength="10" />
+          <Property Name="category_code" Type="varchar" MaxLength="10" />
+          <Property Name="position_code" Type="varchar" MaxLength="2" />
+          <Property Name="education_code" Type="varchar" MaxLength="10" />
+          <Property Name="client_type_code" Type="varchar" MaxLength="10" />
+          <Property Name="religion_code" Type="varchar" MaxLength="10" />
+          <Property Name="smoker_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="cigarete_perday" Type="decimal" Precision="2" Scale="0" />
+          <Property Name="residence_address1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="residence_address2" Type="varchar" MaxLength="60" />
+          <Property Name="residence_phone_no" Type="varchar" MaxLength="15" />
+          <Property Name="residence_fax" Type="varchar" MaxLength="15" />
+          <Property Name="residence_city" Type="varchar" MaxLength="10" />
+          <Property Name="residence_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="residence_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="office_address1" Type="varchar" MaxLength="255" />
+          <Property Name="office_address2" Type="varchar" MaxLength="255" />
+          <Property Name="office_phone_no" Type="varchar" MaxLength="15" />
+          <Property Name="office_fax" Type="varchar" MaxLength="15" />
+          <Property Name="office_city" Type="varchar" MaxLength="30" />
+          <Property Name="office_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="office_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="mail_address1" Type="varchar" MaxLength="255" />
+          <Property Name="mail_address2" Type="varchar" MaxLength="255" />
+          <Property Name="mail_city" Type="varchar" MaxLength="30" />
+          <Property Name="mail_province_code" Type="varchar" MaxLength="5" />
+          <Property Name="mail_postal_code" Type="varchar" MaxLength="5" />
+          <Property Name="bi_code" Type="varchar" MaxLength="10" />
+          <Property Name="bank_account_no" Type="varchar" MaxLength="20" />
+          <Property Name="bank_branch" Type="varchar" MaxLength="60" />
+          <Property Name="bank_city" Type="varchar" MaxLength="100" />
+          <Property Name="account_holder" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="account_holder_relation_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="mobile_phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_type_code" Type="varchar" MaxLength="10" />
+          <Property Name="no_id" Type="varchar" MaxLength="50" />
+          <Property Name="id_issue_date" Type="date" />
+          <Property Name="id_expire_date" Type="date" />
+          <Property Name="height" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="weight" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="monthly_cost" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="client_status" Type="char" MaxLength="2" />
+          <Property Name="npwp" Type="varchar" MaxLength="60" />
+          <Property Name="npwp_name" Type="varchar" MaxLength="60" />
+          <Property Name="npwp_address" Type="varchar" MaxLength="255" />
+          <Property Name="front_title" Type="varchar" MaxLength="20" />
+          <Property Name="back_title" Type="varchar" MaxLength="20" />
+          <Property Name="mother_name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="mother_birth_date" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="OLDToNEWMappingModelStoreContainer">
+          <EntitySet Name="ClientMapping" EntityType="Self.ClientMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewClient" EntityType="Self.NewClient" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OLDToNEWMappingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NewId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NewClient">
+          <Key>
+            <PropertyRef Name="client_no" />
+          </Key>
+          <Property Name="client_id_temp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="policy_no" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="policy_product" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ppOrttOrbf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="salutation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="birth_place" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gender_code" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="marital_status_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="occupation_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="category_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="position_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="education_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="client_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="religion_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="smoker_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cigarete_perday" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="residence_address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="residence_address2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="residence_phone_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="residence_fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="residence_city" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="residence_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="residence_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="office_address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="office_address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="office_phone_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="office_fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="office_city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="office_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="office_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="mail_address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mail_address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mail_city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mail_province_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="mail_postal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="bi_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bank_account_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bank_branch" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="bank_city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="account_holder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account_holder_relation_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_type_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="no_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_issue_date" Type="DateTime" Precision="0" />
+          <Property Name="id_expire_date" Type="DateTime" Precision="0" />
+          <Property Name="height" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="weight" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="monthly_cost" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="client_status" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="npwp" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="npwp_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="npwp_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="front_title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="back_title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mother_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mother_birth_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="OLDToNEWMappingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientMapping" EntityType="Self.ClientMapping" />
+          <EntitySet Name="NewClient" EntityType="Self.NewClient" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OLDToNEWMappingModelStoreContainer" CdmEntityContainer="OLDToNEWMappingEntities">
+          <EntitySetMapping Name="ClientMapping">
+            <EntityTypeMapping TypeName="OLDToNEWMappingModel.ClientMapping">
+              <MappingFragment StoreEntitySet="ClientMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OldId" ColumnName="OldId" />
+                <ScalarProperty Name="NewId" ColumnName="NewId" />
+                <ScalarProperty Name="DatabaseName" ColumnName="DatabaseName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewClient">
+            <EntityTypeMapping TypeName="OLDToNEWMappingModel.NewClient">
+              <MappingFragment StoreEntitySet="NewClient">
+                <ScalarProperty Name="client_id_temp" ColumnName="client_id_temp" />
+                <ScalarProperty Name="policy_no" ColumnName="policy_no" />
+                <ScalarProperty Name="policy_product" ColumnName="policy_product" />
+                <ScalarProperty Name="ppOrttOrbf" ColumnName="ppOrttOrbf" />
+                <ScalarProperty Name="client_no" ColumnName="client_no" />
+                <ScalarProperty Name="salutation" ColumnName="salutation" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="birth_place" ColumnName="birth_place" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="gender_code" ColumnName="gender_code" />
+                <ScalarProperty Name="marital_status_code" ColumnName="marital_status_code" />
+                <ScalarProperty Name="occupation_code" ColumnName="occupation_code" />
+                <ScalarProperty Name="category_code" ColumnName="category_code" />
+                <ScalarProperty Name="position_code" ColumnName="position_code" />
+                <ScalarProperty Name="education_code" ColumnName="education_code" />
+                <ScalarProperty Name="client_type_code" ColumnName="client_type_code" />
+                <ScalarProperty Name="religion_code" ColumnName="religion_code" />
+                <ScalarProperty Name="smoker_status" ColumnName="smoker_status" />
+                <ScalarProperty Name="cigarete_perday" ColumnName="cigarete_perday" />
+                <ScalarProperty Name="residence_address1" ColumnName="residence_address1" />
+                <ScalarProperty Name="residence_address2" ColumnName="residence_address2" />
+                <ScalarProperty Name="residence_phone_no" ColumnName="residence_phone_no" />
+                <ScalarProperty Name="residence_fax" ColumnName="residence_fax" />
+                <ScalarProperty Name="residence_city" ColumnName="residence_city" />
+                <ScalarProperty Name="residence_postal_code" ColumnName="residence_postal_code" />
+                <ScalarProperty Name="residence_province_code" ColumnName="residence_province_code" />
+                <ScalarProperty Name="office_address1" ColumnName="office_address1" />
+                <ScalarProperty Name="office_address2" ColumnName="office_address2" />
+                <ScalarProperty Name="office_phone_no" ColumnName="office_phone_no" />
+                <ScalarProperty Name="office_fax" ColumnName="office_fax" />
+                <ScalarProperty Name="office_city" ColumnName="office_city" />
+                <ScalarProperty Name="office_province_code" ColumnName="office_province_code" />
+                <ScalarProperty Name="office_postal_code" ColumnName="office_postal_code" />
+                <ScalarProperty Name="mail_address1" ColumnName="mail_address1" />
+                <ScalarProperty Name="mail_address2" ColumnName="mail_address2" />
+                <ScalarProperty Name="mail_city" ColumnName="mail_city" />
+                <ScalarProperty Name="mail_province_code" ColumnName="mail_province_code" />
+                <ScalarProperty Name="mail_postal_code" ColumnName="mail_postal_code" />
+                <ScalarProperty Name="bi_code" ColumnName="bi_code" />
+                <ScalarProperty Name="bank_account_no" ColumnName="bank_account_no" />
+                <ScalarProperty Name="bank_branch" ColumnName="bank_branch" />
+                <ScalarProperty Name="bank_city" ColumnName="bank_city" />
+                <ScalarProperty Name="account_holder" ColumnName="account_holder" />
+                <ScalarProperty Name="account_holder_relation_code" ColumnName="account_holder_relation_code" />
+                <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_type_code" ColumnName="id_type_code" />
+                <ScalarProperty Name="no_id" ColumnName="no_id" />
+                <ScalarProperty Name="id_issue_date" ColumnName="id_issue_date" />
+                <ScalarProperty Name="id_expire_date" ColumnName="id_expire_date" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="monthly_cost" ColumnName="monthly_cost" />
+                <ScalarProperty Name="client_status" ColumnName="client_status" />
+                <ScalarProperty Name="npwp" ColumnName="npwp" />
+                <ScalarProperty Name="npwp_name" ColumnName="npwp_name" />
+                <ScalarProperty Name="npwp_address" ColumnName="npwp_address" />
+                <ScalarProperty Name="front_title" ColumnName="front_title" />
+                <ScalarProperty Name="back_title" ColumnName="back_title" />
+                <ScalarProperty Name="mother_name" ColumnName="mother_name" />
+                <ScalarProperty Name="mother_birth_date" ColumnName="mother_birth_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

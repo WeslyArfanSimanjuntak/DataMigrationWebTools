@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4F03F1F-8A5D-4E6C-A919-117BB6F2ED73}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataMigrationConsoleTools</RootNamespace>
+    <AssemblyName>DataMigrationConsoleTools</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataMigrationMapper.cs" />
+    <Compile Include="DataModels\ADDRESS.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\APPLICATION.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\APPREL.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\AppVersion.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\BANK.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\BENEFICIARY.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\BreakPolisInvesta.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\BUPRD.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\BUPRH.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CancelPolisIIL.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CancelPolisInvesta.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\cd_client_.cs">
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CLIENT.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ClientMapping.cs">
+      <DependentUpon>ModelClientMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\CommonSetting.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\DataNAV.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\DataNAVNew.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\DataNAVold.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EndorsPolisIIL.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\EndorsPolisInvesta.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\fn_fundnav_.cs">
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IILSchedule.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IILTransaction.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IIL_CashBack.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IIL_CashReward.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IIL_EOM.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\InvestaEOM.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\InvestaSchedule.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\InvestaTransaction.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\InvestaTransactionNew.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\InvestaTransactionold.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Investa_CashBack.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Investa_CashReward.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IPPCancel.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IPPMature.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IPPSchedule.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\IPP_CashReward.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_BANKS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMERS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMERS_TMP.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMER_BANKS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMER_BANKS_TMP.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMER_HIST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMER_RELATIONSHIPS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_CUSTOMER_RELATIONSHIPS_TMP.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_LOGIN_ATTEMPT.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_LOGS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_PRODUCTS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_PRODUCT_BENEFITS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_STG_DTL.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_STG_HDR.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_APP_STG_HST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_FIN_UPD_DTL.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_FIN_UPD_HDR.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_MKT_AGENT_MST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_MKT_COMMISSION_ACTION_HIST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_MKT_COMMISSION_DTL.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_MKT_COMMISSION_HDR.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_CLAIMS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_CLAIM_ACTION_HIST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_CLAIM_DOCS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_ENDORSE_BN.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_ENDORSE_DTL.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_ENDORSE_FILE.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_ENDORSE_IS.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_ENDORSE_PH.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_POLICIES.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_POLICY_HIST.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_POLICY_PCF.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ISL_OPS_POLICY_TMP.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelClientMapping.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelClientMapping.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelClientMapping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelClientMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelClientMapping.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelClientMapping.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelIlias.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelIlias.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelIlias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelIlias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelIlias.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelISLPortal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLPortal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelISLPortal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelISLPortal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLPortal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMGULDBDev.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGULDBDev.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMGULDBDev.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMGULDBDev.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGULDBDev.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMultiUserDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMultiUserDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMultiUserDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ModelMultiUserDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMultiUserDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\NewClient.cs">
+      <DependentUpon>ModelClientMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\OldClientIdToNewClientId.cs">
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PaymentReq_Detail.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PaymentReq_Header.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\acc_bank_bi.cs">
+      <DependentUpon>ModelISLGLDB2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\cd_client.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_bank_bi.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_billing.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_collection.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_collection_detail.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_debitnote.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_disbursement.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_disbursement_detail.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\fn_fundnav.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelISLGLDB2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLGLDB2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelISLGLDB2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLGLDB2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelISLGLDB2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelISLGLDB2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelPLMIGULDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPLMIGULDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelPLMIGULDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ModelPLMIGULDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPLMIGULDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_beneficiary.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_coi_history.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_fund.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_insured.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_insured_benefit.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_mgi.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_premium_history.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\nb_application_product.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_address.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_beneficiary.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_client.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_fund_allocation.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_fund_allocation_detail.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_product.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_switching.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_topup.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_alteration_withdrawal.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\ps_fund_transaction_history.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_address_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_alteration_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_application_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_approval_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_area.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_benefit_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_city.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_claim_document.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_claim_reason.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_claim_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_client_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_cod.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_disease.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_disease_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_distribution_channel.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_education.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_identity_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_investment_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_line_business.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_marital_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_occupation.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_occupation_category.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_office.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_office_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_payment_frequency.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_payment_method.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_payment_mode.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_payment_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_payment_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_policy_status.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_position.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_product_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_provider.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_province.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_reasurance_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_regency.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_regional.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_religion.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_risk_class.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\sw_transaction_type.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\uw_underwriting.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PLDataModels\uw_underwriting_detail.cs">
+      <DependentUpon>ModelPLMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisIIL.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisInvesta.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisIPP.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisIPPARO.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisIPP_tmp.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PolisResponse.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\PostpPolisInvesta.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Product.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ProductRate.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ProductRate_Detail.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\ps_fund_transaction_history_.cs">
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Rate_COI.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Reference.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\SP_COMMISSION_SUMMARY_Result.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\SP_PROCESS_CONFIRMED_DATA_Result.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\SP_PRODUCTION_SUMMARY_Result.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\sysdiagrams.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblKodePos.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblLabel.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblLabelNew.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblRole.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblSOA.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblUser.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblUserPP.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblUserPPResponse.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\TblUserTokenPP.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\UpdateNAV.cs">
+      <DependentUpon>ModelMultiUserDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\usp_GetErrorInfo_Result.cs">
+      <DependentUpon>ModelMGULDBDev.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\View_BankAccount.cs">
+      <DependentUpon>ModelIlias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\vw_jiwa.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\vw_jiwa_db.cs">
+      <DependentUpon>ModelISLPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MigrationTools.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="DataModels\ModelMultiUserDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMultiUserDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\ModelMGULDBDev.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMGULDBDev.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\ModelISLPortal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelISLPortal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\ModelIlias.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelIlias.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\ModelClientMapping.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelClientMapping.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModels\ModelClientMapping.edmx.diagram">
+      <DependentUpon>ModelClientMapping.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\ModelIlias.edmx.diagram">
+      <DependentUpon>ModelIlias.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\ModelISLPortal.edmx.diagram">
+      <DependentUpon>ModelISLPortal.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\ModelMGULDBDev.edmx.diagram">
+      <DependentUpon>ModelMGULDBDev.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\ModelMultiUserDB.edmx.diagram">
+      <DependentUpon>ModelMultiUserDB.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="DataModels\PLDataModels\ModelPLMIGULDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPLMIGULDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="DataModels\PLDataModels\ModelISLGLDB2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelISLGLDB2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModels\PLDataModels\ModelISLGLDB2.edmx.diagram">
+      <DependentUpon>ModelISLGLDB2.edmx</DependentUpon>
+    </None>
+    <None Include="DataModels\PLDataModels\ModelPLMIGULDB.edmx.diagram">
+      <DependentUpon>ModelPLMIGULDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModels\ModelClientMapping.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelClientMapping.edmx</DependentUpon>
+      <LastGenOutput>ModelClientMapping.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelClientMapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelClientMapping.edmx</DependentUpon>
+      <LastGenOutput>ModelClientMapping.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelIlias.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelIlias.edmx</DependentUpon>
+      <LastGenOutput>ModelIlias.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelIlias.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelIlias.edmx</DependentUpon>
+      <LastGenOutput>ModelIlias.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelISLPortal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelISLPortal.edmx</DependentUpon>
+      <LastGenOutput>ModelISLPortal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelISLPortal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelISLPortal.edmx</DependentUpon>
+      <LastGenOutput>ModelISLPortal.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelMGULDBDev.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMGULDBDev.edmx</DependentUpon>
+      <LastGenOutput>ModelMGULDBDev.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelMGULDBDev.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMGULDBDev.edmx</DependentUpon>
+      <LastGenOutput>ModelMGULDBDev.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\ModelMultiUserDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelMultiUserDB.Context.cs</LastGenOutput>
+      <DependentUpon>ModelMultiUserDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataModels\ModelMultiUserDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMultiUserDB.edmx</DependentUpon>
+      <LastGenOutput>ModelMultiUserDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\PLDataModels\ModelISLGLDB2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelISLGLDB2.edmx</DependentUpon>
+      <LastGenOutput>ModelISLGLDB2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\PLDataModels\ModelISLGLDB2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelISLGLDB2.edmx</DependentUpon>
+      <LastGenOutput>ModelISLGLDB2.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\PLDataModels\ModelPLMIGULDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPLMIGULDB.edmx</DependentUpon>
+      <LastGenOutput>ModelPLMIGULDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\PLDataModels\ModelPLMIGULDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPLMIGULDB.edmx</DependentUpon>
+      <LastGenOutput>ModelPLMIGULDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f393df0d12848749f17ca020c7a315b" Name="Diagram1" ZoomLevel="56">
+        <EntityTypeShape EntityType="ILIASModel.ADDRESS" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ILIASModel.APPLICATION" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ILIASModel.APPREL" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ILIASModel.CLIENT" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="ILIASModel.FK_APPLICAT_ADDR_TO_A_ADDRESS" ManuallyRouted="false" />
+        <AssociationConnector Association="ILIASModel.FK_APPREL_APPLI_TO__APPLICAT" ManuallyRouted="false" />
+        <AssociationConnector Association="ILIASModel.FK_APPREL_CLIENT_TO_CLIENT" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ILIASModel.BANK" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ILIASModel.View_BankAccount" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ILIASModel.BENEFICIARY" Width="1.5" PointX="5.25" PointY="8.5" />
+        <AssociationConnector Association="ILIASModel.FK_BENEFICI_APPLI_TO__APPLICAT" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

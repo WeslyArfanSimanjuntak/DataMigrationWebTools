@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE58994F-550E-46A5-97CD-00CB99278C35}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SentToMIGULDB</RootNamespace>
+    <AssemblyName>SentToMIGULDB</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cd_client.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cd_client_.cs">
+      <DependentUpon>ModelMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientMapping.cs">
+      <DependentUpon>ModelOLDToNEWMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_billing.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_collection.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_collection_detail.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_debitnote.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_disbursement.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_disbursement_detail.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_fundnav.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_fundnav_.cs">
+      <DependentUpon>ModelMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDBPL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDBPL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDBPL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMIGULDBPL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMIGULDBPL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelOLDToNEWMapping.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOLDToNEWMapping.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelOLDToNEWMapping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOLDToNEWMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelOLDToNEWMapping.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelOLDToNEWMapping.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_beneficiary.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_coi_history.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_fund.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_insured.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_insured_benefit.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_mgi.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_premium_history.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nb_application_product.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewClient.cs">
+      <DependentUpon>ModelOLDToNEWMapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OldClientIdToNewClientId.cs">
+      <DependentUpon>ModelMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ps_alteration.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_address.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_beneficiary.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_client.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_fund_allocation.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_fund_allocation_detail.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_product.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_switching.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_topup.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_alteration_withdrawal.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_fund_transaction_history.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ps_fund_transaction_history_.cs">
+      <DependentUpon>ModelMIGULDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_address_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_alteration_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_application_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_approval_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_area.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_benefit_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_city.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_claim_document.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_claim_reason.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_claim_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_client_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_cod.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_disease.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_disease_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_distribution_channel.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_education.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_identity_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_investment_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_line_business.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_marital_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_occupation.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_occupation_category.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_office.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_office_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_payment_frequency.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_payment_method.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_payment_mode.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_payment_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_payment_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_policy_status.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_position.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_product_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_provider.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_province.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_reasurance_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_regency.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_regional.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_religion.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_risk_class.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sw_transaction_type.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uw_underwriting.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uw_underwriting_detail.cs">
+      <DependentUpon>ModelMIGULDBPL.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ModelMIGULDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMIGULDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelMIGULDB.edmx.diagram">
+      <DependentUpon>ModelMIGULDB.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="ModelMIGULDBPL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMIGULDBPL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelMIGULDBPL.edmx.diagram">
+      <DependentUpon>ModelMIGULDBPL.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="ModelOLDToNEWMapping.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelOLDToNEWMapping.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelOLDToNEWMapping.edmx.diagram">
+      <DependentUpon>ModelOLDToNEWMapping.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelMIGULDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelMIGULDB.Context.cs</LastGenOutput>
+      <DependentUpon>ModelMIGULDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelMIGULDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMIGULDB.edmx</DependentUpon>
+      <LastGenOutput>ModelMIGULDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelMIGULDBPL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMIGULDBPL.edmx</DependentUpon>
+      <LastGenOutput>ModelMIGULDBPL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelMIGULDBPL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMIGULDBPL.edmx</DependentUpon>
+      <LastGenOutput>ModelMIGULDBPL.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelOLDToNEWMapping.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelOLDToNEWMapping.edmx</DependentUpon>
+      <LastGenOutput>ModelOLDToNEWMapping.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelOLDToNEWMapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelOLDToNEWMapping.edmx</DependentUpon>
+      <LastGenOutput>ModelOLDToNEWMapping.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

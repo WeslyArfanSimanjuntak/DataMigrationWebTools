@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ISLGLDB2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="acc_bank_bi">
+          <Key>
+            <PropertyRef Name="kode_bi" />
+          </Key>
+          <Property Name="kode_bi" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nama_bank_bi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="tgl_rekam" Type="datetime" Nullable="false" />
+          <Property Name="petugas_rekam" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="tgl_ubah" Type="datetime" />
+          <Property Name="petugas_ubah" Type="varchar" MaxLength="30" />
+          <Property Name="kode_kliring" Type="varchar" MaxLength="300" />
+          <Property Name="status" Type="char" MaxLength="1" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="ISLGLDB2ModelStoreContainer">
+          <EntitySet Name="acc_bank_bi" EntityType="Self.acc_bank_bi" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ISLGLDB2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="acc_bank_bi">
+          <Key>
+            <PropertyRef Name="kode_bi" />
+          </Key>
+          <Property Name="kode_bi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nama_bank_bi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tgl_rekam" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="petugas_rekam" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tgl_ubah" Type="DateTime" Precision="3" />
+          <Property Name="petugas_ubah" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="kode_kliring" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="start_date" Type="DateTime" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="ISLGLDB2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="acc_bank_bi" EntityType="Self.acc_bank_bi" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ISLGLDB2ModelStoreContainer" CdmEntityContainer="ISLGLDB2Entities">
+          <EntitySetMapping Name="acc_bank_bi">
+            <EntityTypeMapping TypeName="ISLGLDB2Model.acc_bank_bi">
+              <MappingFragment StoreEntitySet="acc_bank_bi">
+                <ScalarProperty Name="kode_bi" ColumnName="kode_bi" />
+                <ScalarProperty Name="nama_bank_bi" ColumnName="nama_bank_bi" />
+                <ScalarProperty Name="tgl_rekam" ColumnName="tgl_rekam" />
+                <ScalarProperty Name="petugas_rekam" ColumnName="petugas_rekam" />
+                <ScalarProperty Name="tgl_ubah" ColumnName="tgl_ubah" />
+                <ScalarProperty Name="petugas_ubah" ColumnName="petugas_ubah" />
+                <ScalarProperty Name="kode_kliring" ColumnName="kode_kliring" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
