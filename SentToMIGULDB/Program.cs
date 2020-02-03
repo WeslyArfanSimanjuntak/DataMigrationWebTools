@@ -105,18 +105,29 @@ namespace SentToMIGULDB
             Console.WriteLine("PUSH ps_fund_transaction_history TO MIGULDB");
             Console.WriteLine(DateTime.Now);
             var dbDev = new MIGULDBDevEntities();
-            // BuildMyString.com generated code. Please enjoy your string responsibly.
+            var retval = string.Empty;
+
+            string text = System.IO.File.ReadAllText(@"..\..\SendFundTransactionToMIGULDB.sql");
+            retval = dbDev.Database.SqlQuery<string>(text).FirstOrDefault();
+            if (retval == "SUCCESS")
+            {
+                Console.WriteLine("PUSH fn_fundnav DATA IS DONE");
+            }
+            else
+            {
+                Console.WriteLine("PUSH fn_fundnav DATA IS FAILED FAILED FAILED !!!");
+            }
 
 
-            var allps_fund_transaction_history = dbDev.Database.SqlQuery<ps_fund_transaction_history>("select * from [MIGULDBDev].[dbo].[ps_fund_transaction_history_]").ToList();
-            var dbMIGULDB = new MIGULDBEntities();
-            dbMIGULDB.ps_fund_transaction_history.RemoveRange(dbMIGULDB.ps_fund_transaction_history);
-            dbMIGULDB.SaveChanges();
+            //var allps_fund_transaction_history = dbDev.Database.SqlQuery<ps_fund_transaction_history>("select * from [MIGULDBDev].[dbo].[ps_fund_transaction_history_]").ToList();
+            //var dbMIGULDB = new MIGULDBEntities();
+            //dbMIGULDB.ps_fund_transaction_history.RemoveRange(dbMIGULDB.ps_fund_transaction_history);
+            //dbMIGULDB.SaveChanges();
 
-            dbMIGULDB.ps_fund_transaction_history.AddRange(allps_fund_transaction_history);
-            dbMIGULDB.SaveChanges();
+            //dbMIGULDB.ps_fund_transaction_history.AddRange(allps_fund_transaction_history);
+            //dbMIGULDB.SaveChanges();
 
-            Console.WriteLine("PUSH ps_fund_transaction_history DATA IS DONE");
+            //Console.WriteLine("PUSH ps_fund_transaction_history DATA IS DONE");
             Console.WriteLine(DateTime.Now);
 
 
